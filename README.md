@@ -1,6 +1,6 @@
 A complete full-stack application built as part of the MPloyChek internship evaluation. The project features a modern Angular frontend architecture paired with a reliable Node.js/Express backend API to deliver role-based data views with simulated network latency handling.
 
-## 🚀 Features
+##  Features
 - **Secure Authentication UI:** User login with real-time field validation and role-selection routing.
 - **Role-Based Access Control (RBAC):** Separate interactive workspaces loaded dynamically depending on user permissions (General User vs. Admin).
 - **Asynchronous Latency Simulation:** Implements a customizable network delay parameter on data loading to mimic real-world production environments.
@@ -8,14 +8,14 @@ A complete full-stack application built as part of the MPloyChek internship eval
 
 ---
 
-## 🛠️ Technology Stack
+##  Technology Stack
 - **Frontend:** Angular (v17+ Single Page Application architecture)
 - **Backend:** Node.js, Express.js, CORS Middleware
 - **Styling:** Modular CSS grid and flexbox layouts
 
 ---
 
-## 💻 Getting Started Locally
+##  Getting Started Locally
 
 Follow these quick steps to get the entire environment running on your machine.
 
