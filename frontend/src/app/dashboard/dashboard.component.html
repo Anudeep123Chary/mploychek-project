@@ -1,0 +1,86 @@
+<div class="loading-overlay" *ngIf="isLoading">
+  <div class="spinner"></div>
+  <p>Fetching records from verification database (Simulating Network Delay...)</p>
+</div>
+
+<div class="dashboard-wrapper" *ngIf="!isLoading">
+  <nav class="navbar">
+    <div class="nav-brand">MployChek Verification Studio</div>
+    <div class="user-profile">
+      <span>Welcome, <strong>{{ userUsername }}</strong> ({{ userRole }})</span>
+      <button class="logout-btn" (click)="onLogout()">Sign Out</button>
+    </div>
+  </nav>
+
+  <main class="dashboard-content">
+    
+    <header class="content-header">
+      <h1>Verification Operations Console</h1>
+      <p>System Status: <span class="status-badge">Operational</span></p>
+    </header>
+
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <h3>Total Background Checks</h3>
+        <p class="metric-value">1,248</p>
+      </div>
+      <div class="metric-card">
+        <h3>Pending Reviews</h3>
+        <p class="metric-value">14</p>
+      </div>
+      <div class="metric-card">
+        <h3>Completed Today</h3>
+        <p class="metric-value">32</p>
+      </div>
+    </div>
+
+    <div class="role-section admin-panel" *ngIf="userRole === 'Admin'">
+      <h2>🛡️ Administrative Management Deck</h2>
+      <p class="panel-desc">Elevated clearance level. Managing system access credentials across database records.</p>
+      
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>User ID</th>
+            <th>System Username</th>
+            <th>Assigned Role</th>
+            <th>Account Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let record of records">
+            <td><strong>{{ record.id }}</strong></td>
+            <td>{{ record.username }}</td>
+            <td><span class="badge role">{{ record.role }}</span></td>
+            <td><span class="badge active">Active Access</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="role-section user-panel" *ngIf="userRole === 'General User'">
+      <h2>📋 Staff Verification Workspace</h2>
+      <p class="panel-desc">Standard operator clearance active. Viewing assigned candidate screenings.</p>
+      
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Candidate ID</th>
+            <th>Candidate Name</th>
+            <th>Verification Type</th>
+            <th>Status Check</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let record of records">
+            <td><strong>{{ record.id }}</strong></td>
+            <td>{{ record.candidateName }}</td>
+            <td>{{ record.type }}</td>
+            <td><span class="badge review">{{ record.status }}</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </main>
+</div>

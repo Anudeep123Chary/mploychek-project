@@ -1,0 +1,47 @@
+<div class="login-container">
+  <div class="login-card">
+    <h2>MployChek Portal</h2>
+    <p class="subtitle">Please sign in to access your verification dashboard</p>
+
+    <div class="error-box" *ngIf="errorMessage">
+      {{ errorMessage }}
+    </div>
+
+    <form (ngsubmit)="onLogin()">
+      <div class="input-group">
+        <label for="username">Username</label>
+        <input 
+          type="text" 
+          id="username" 
+          name="username" 
+          [(ngModel)]="username" 
+          required 
+          placeholder="Enter your username">
+      </div>
+
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input 
+          type="password" 
+          id="password" 
+          name="password" 
+          [(ngModel)]="password" 
+          required 
+          placeholder="Enter your password">
+      </div>
+
+      <div class="input-group">
+        <label for="role">Portal Role</label>
+        <select id="role" name="role" [(ngModel)]="selectedRole">
+          <option value="General User">General User (Employee)</option>
+          <option value="Admin">System Administrator</option>
+        </select>
+      </div>
+
+      <button type="button" (click)="onLogin()" class="btn btn-primary">
+        <span *ngIf="!isLoading">Sign In</span>
+        <span *ngIf="isLoading">Verifying Credentials...</span>
+      </button>
+    </form>
+  </div>
+</div>
